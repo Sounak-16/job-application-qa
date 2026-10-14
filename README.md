@@ -79,7 +79,7 @@ job-application-qa/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/job-application-qa.git
+git clone https://github.com/Sounak-16/job-application-qa.git
 cd job-application-qa
 ```
 
