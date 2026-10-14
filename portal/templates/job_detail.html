@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}{{ job.title }} - Nexus Careers{% endblock %}
+
+{% block extra_head %}
+<style>
+    .breadcrumb {
+        margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    .breadcrumb a:hover {
+        color: var(--primary);
+    }
+    .detail-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+    .detail-header {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.75rem;
+    }
+    .detail-header h1 {
+        font-size: 1.85rem;
+        color: var(--text-main);
+        margin-bottom: 0.75rem;
+    }
+    .detail-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+    }
+    .section-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-main);
+        margin: 1.75rem 0 0.75rem 0;
+    }
+    .content-body {
+        color: #334155;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    ul.check-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0.5rem;
+    }
+    ul.check-list li {
+        position: relative;
+        padding-left: 1.75rem;
+        margin-bottom: 0.6rem;
+        color: #334155;
+    }
+    ul.check-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+    }
+    .action-panel {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/" id="back-to-jobs">&larr; Back to all open roles</a>
+</div>
+
+<article class="detail-card" id="job-detail-card" data-job-id="{{ job.id }}">
+    <header class="detail-header">
+        <h1 id="detail-job-title">{{ job.title }}</h1>
+        <div class="detail-badges">
+            <span class="chip chip-primary" id="detail-department">{{ job.department }}</span>
+            <span class="chip" id="detail-location">{{ job.location }}</span>
+            <span class="chip" id="detail-type">{{ job.employment_type }}</span>
+            <span class="chip" id="detail-experience">Experience: {{ job.experience }}</span>
+            <span class="chip" id="detail-salary" style="color: var(--success); font-weight: 600;">{{ job.salary_range }}</span>
+        </div>
+    </header>
+
+    <section>
+        <h2 class="section-title">Role Overview</h2>
+        <p class="content-body" id="detail-summary">{{ job.summary }}</p>
+    </section>
+
+    <section>
+        <h2 class="section-title">Key Responsibilities</h2>
+        <ul class="check-list" id="detail-responsibilities">
+            {% for item in job.responsibilities %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="section-title">Candidate Requirements</h2>
+        <ul class="check-list" id="detail-requirements">
+            {% for req in job.requirements %}
+            <li>{{ req }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="action-panel">
+        <div>
+            <span style="font-size: 0.95rem; color: var(--text-muted);">Ready to make an impact?</span>
+            <p style="font-weight: 600; color: var(--text-main);">Apply today in under 2 minutes.</p>
+        </div>
+        <a href="/jobs/{{ job.id }}/apply" class="btn btn-primary" id="apply-for-job-btn" style="padding: 0.75rem 1.75rem; font-size: 1rem;">
+            Apply for this Position &rarr;
+        </a>
+    </section>
+</article>
+{% endblock %}

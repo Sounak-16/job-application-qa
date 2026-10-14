@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Application Submitted Successfully - Nexus Careers{% endblock %}
+
+{% block extra_head %}
+<style>
+    .success-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 3rem 2rem;
+        box-shadow: var(--shadow);
+        max-width: 640px;
+        margin: 1.5rem auto;
+        text-align: center;
+    }
+    .success-icon {
+        width: 64px;
+        height: 64px;
+        background-color: var(--success-bg);
+        color: var(--success);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+    .ref-box {
+        background-color: #f8fafc;
+        border: 1px dashed var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        margin: 1.75rem 0;
+        text-align: left;
+    }
+    .ref-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+    .ref-row:last-child {
+        margin-bottom: 0;
+    }
+    .ref-label {
+        color: var(--text-muted);
+    }
+    .ref-value {
+        font-weight: 600;
+        color: var(--text-main);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="success-card" id="success-confirmation-card">
+    <div class="success-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+    </div>
+
+    <h1 style="font-size: 1.85rem; color: var(--text-main); margin-bottom: 0.5rem;">Application Received!</h1>
+    <p style="color: var(--text-muted); font-size: 1.05rem;">
+        Thank you, <strong id="confirmed-applicant-name">{{ application.full_name }}</strong>. We have received your application for 
+        <strong id="confirmed-job-title">{{ application.job_title }}</strong>.
+    </p>
+
+    <div class="ref-box">
+        <div class="ref-row">
+            <span class="ref-label">Reference ID:</span>
+            <span class="ref-value" id="confirmation-ref">{{ application.ref_id }}</span>
+        </div>
+        <div class="ref-row">
+            <span class="ref-label">Contact Email:</span>
+            <span class="ref-value" id="confirmed-email">{{ application.email }}</span>
+        </div>
+        <div class="ref-row">
+            <span class="ref-label">Attached Resume:</span>
+            <span class="ref-value" id="confirmed-resume">{{ application.resume_filename }}</span>
+        </div>
+        <div class="ref-row">
+            <span class="ref-label">Status:</span>
+            <span class="ref-value" style="color: var(--success);">{{ application.status }}</span>
+        </div>
+    </div>
+
+    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+        Our recruiting team will review your qualifications and reach out within 3 business days.
+    </p>
+
+    <a href="/" class="btn btn-primary" id="back-to-jobs-btn">Return to Open Positions</a>
+</div>
+{% endblock %}

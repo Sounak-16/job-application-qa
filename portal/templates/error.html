@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Error {{ error_code or 500 }} - Nexus Careers{% endblock %}
+
+{% block extra_head %}
+<style>
+    .error-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 3rem 2rem;
+        box-shadow: var(--shadow);
+        max-width: 560px;
+        margin: 2rem auto;
+        text-align: center;
+    }
+    .error-code {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--danger);
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    .error-message {
+        font-size: 1.1rem;
+        color: var(--text-main);
+        margin-bottom: 1.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="error-card" id="error-card">
+    <div class="error-code" id="error-status-code">{{ error_code or 500 }}</div>
+    <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Something went wrong</h1>
+    <p class="error-message" id="error-message-text">{{ message or 'An unexpected error occurred.' }}</p>
+    <a href="/" class="btn btn-secondary" id="error-home-btn">Return to Safety (Home)</a>
+</div>
+{% endblock %}
