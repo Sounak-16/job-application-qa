@@ -12,7 +12,7 @@ Designed and implemented with an emphasis on **real-world failure modes**, **inp
 
 ---
 
-## 📌 Project Architecture
+## Project Architecture
 
 The repository separates the test harness, mock application data, and storage logic into clean, decoupled modules:
 
@@ -47,7 +47,7 @@ job-application-qa/
 
 ---
 
-## 🚀 Key Quality Features Tested
+## Key Quality Features Tested
 
 1. **Job Discovery & Keyword Search**:
    - Case-insensitive search across job titles, departments, summaries, and technical skills (e.g., searching `"Playwright"` filters directly to the QA Automation role).
@@ -71,7 +71,7 @@ job-application-qa/
 
 ---
 
-## 🛠️ Setup & Installation
+## Setup and Installation
 
 ### Prerequisites
 - **Python 3.10+** (tested on Python 3.12)
@@ -106,7 +106,7 @@ playwright install chromium firefox
 
 ---
 
-## 🌐 Running the Web Application
+## Running the Web Application
 
 The automated test suite starts and stops the local web server automatically. To explore the portal manually in your browser:
 
@@ -117,7 +117,7 @@ Open **[http://127.0.0.1:5555](http://127.0.0.1:5555)** in any web browser.
 
 ---
 
-## 🧪 Test Execution
+## Test Execution
 
 ### Run Full Test Suite on Default Engine (Chromium)
 ```bash
@@ -156,7 +156,7 @@ pytest tests/test_failures_and_simulations.py
 
 ---
 
-## 📊 Test Results & Multi-Browser Matrix
+## Test Results and Multi-Browser Matrix
 
 ```text
 ============================= test session starts ==============================
@@ -187,7 +187,7 @@ This occurs due to Apple freezing the macOS 12 WebKit builds. For native WebKit 
 
 ---
 
-## 📄 QA Deliverables & Documentation
+## QA Deliverables and Documentation
 
 - **[test-plan.md](./test-plan.md)**: Comprehensive QA strategy detailing test objectives, scope boundaries, priority matrices (P0–P3), risk analysis, and mitigation plans.
 - **[test-cases.csv](./test-cases.csv)**: 22 detailed test scenarios covering positive flows, negative boundary validation, navigation, rapid double clicks, network drops, and cross-browser execution.
@@ -196,7 +196,7 @@ This occurs due to Apple freezing the macOS 12 WebKit builds. For native WebKit 
 
 ---
 
-## 💡 Notes, Trade-offs & Limitations
+## Notes, Trade-offs, and Limitations
 
 ### Key Decisions
 - **Local Mock Application**: To adhere strictly to ethical QA standards and avoid sending dummy test data to any live hiring systems, built a lightweight local Flask portal that realistically replicates candidate job search, role requirements, form submission, and server fault injection.
@@ -218,5 +218,5 @@ This occurs due to Apple freezing the macOS 12 WebKit builds. For native WebKit 
 
 ---
 
-## 👤 Author
+## Author
 Developed as a Quality Assurance Automation Engineer assessment deliverable.
